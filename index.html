@@ -1,26 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Church App Login</title>
+  <title>Welcome to Exodus Products</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(15px);
+      padding: 40px;
+      border-radius: 20px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      color: #fff;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #ffffff;
+      color: #333;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #f1f1f1;
+    }
+
+    #msg {
+      margin-top: 10px;
+      color: #ffdddd;
+    }
+  </style>
 </head>
-<body style="text-align:center; margin-top:100px; font-family:sans-serif;">
 
-<h2>Member Login</h2>
+<body>
 
-<input type="email" id="email" placeholder="Email"><br><br>
-<input type="password" id="password" placeholder="Password"><br><br>
+<div class="card">
+  <h2>Member Login</h2>
 
-<button onclick="login()">Login</button>
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
 
-<p id="msg"></p>
+  <button onclick="login()">Login</button>
 
+  <p id="msg"></p>
+</div>
+
+<!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
 
 <script>
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com"
+  apiKey: "AIzaSyA13himKci_pmP583-UtnpixWM8btApUAw",
+  authDomain: "exo-projects.firebaseapp.com"
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -35,7 +101,7 @@ function login() {
       window.location.href = "download.html";
     })
     .catch(() => {
-      document.getElementById("msg").innerText = "Login Failed";
+      document.getElementById("msg").innerText = "Invalid login details";
     });
 }
 </script>
