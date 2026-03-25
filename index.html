@@ -1,85 +1,139 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Welcome to Exodus Products</title>
+  <title>Exodus Accounts App Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Font -->
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
+    }
+
+    body {
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      background: #f2f2f2;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(15px);
-      padding: 40px;
+    .container {
+      display: flex;
+      width: 900px;
+      height: 500px;
+      background: #fff;
       border-radius: 20px;
-      width: 300px;
-      text-align: center;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-      color: #fff;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     }
 
-    h2 {
+    /* LEFT SIDE */
+    .left {
+      width: 50%;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .left h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .left p {
+      color: gray;
       margin-bottom: 20px;
     }
 
     input {
-      width: 100%;
       padding: 12px;
       margin: 10px 0;
-      border: none;
       border-radius: 10px;
-      outline: none;
+      border: 1px solid #ddd;
+      width: 100%;
     }
 
     button {
-      width: 100%;
       padding: 12px;
-      margin-top: 15px;
       border: none;
       border-radius: 10px;
-      background: #ffffff;
-      color: #333;
+      background: linear-gradient(135deg, #7b2ff7, #f107a3);
+      color: white;
       font-weight: bold;
       cursor: pointer;
-      transition: 0.3s;
+      margin-top: 15px;
     }
 
     button:hover {
-      background: #f1f1f1;
+      opacity: 0.9;
     }
 
     #msg {
       margin-top: 10px;
-      color: #ffdddd;
+      color: red;
+    }
+
+    /* RIGHT SIDE */
+    .right {
+      width: 50%;
+      background: linear-gradient(135deg, #7b2ff7, #f107a3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .right h2 {
+      font-size: 24px;
+    }
+
+    @media(max-width: 768px) {
+      .container {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+      }
+      .left, .right {
+        width: 100%;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<div class="card">
-  <h2>Member Login</h2>
-  <img src="logo.png" width="80">
-  <input type="email" id="email" placeholder="Email">
-  <input type="password" id="password" placeholder="Password">
+<div class="container">
 
-  <button onclick="login()">Login</button>
+  <!-- LEFT -->
+  <div class="left">
+    <h1>Welcome</h1>
+    <p>Login to download Exodus Accounts app</p>
 
-  <p id="msg"></p>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="login()">Sign In</button>
+
+    <p id="msg"></p>
+  </div>
+
+  <!-- RIGHT -->
+ <div class="right">
+  <img src="your-image.png" style="width:80%;">
 </div>
 
-<!-- ✅ Firebase v8 (Stable & Easy) -->
+</div>
+
+<!-- Firebase v8 -->
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 
@@ -89,10 +143,7 @@ const firebaseConfig = {
   authDomain: "exo-projects.firebaseapp.com"
 };
 
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
-// Auth reference
 const auth = firebase.auth();
 
 function login() {
