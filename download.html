@@ -4,6 +4,7 @@
   <title>Download App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -14,42 +15,80 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #43e97b, #38f9d7);
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
     }
 
-    .card {
-      background: white;
+    .container {
+      text-align: center;
+      background: rgba(255,255,255,0.1);
       padding: 40px;
       border-radius: 20px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      backdrop-filter: blur(10px);
+      width: 320px;
     }
 
-    button {
-      padding: 15px 25px;
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border-radius: 12px;
       border: none;
-      border-radius: 10px;
-      background: #4facfe;
-      color: white;
-      font-size: 16px;
+      font-weight: bold;
       cursor: pointer;
+      transition: 0.3s;
+      font-size: 15px;
     }
 
-    button:hover {
-      background: #3a8de0;
+    .android {
+      background: #3ddc84;
+      color: black;
+    }
+
+    .ios {
+      background: #000;
+      color: white;
+    }
+
+    .mac {
+      background: #999;
+      color: white;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
 
 <body>
 
-<div class="card">
+<div class="container">
   <h2>Download Exodus Accounts App</h2>
-  <p>Click below to install the app</p>
+  <p>Select your device to continue</p>
 
   <a href="https://drive.google.com/file/d/18NOY0Xdt5aBbEDVU7TU-_1s_SuMPgc2Y/view?usp=drive_link">
-    <button>Download APK</button>
+    <button class="btn android">📱 Download for Android</button>
   </a>
+
+  <a href="https://drive.google.com/file/d/1haSPXc8trJaET0A4uMi6q59fqY5JQjc2/view?usp=drive_link">
+    <button class="btn ios">🍎 Download for iOS</button>
+  </a>
+
+  <a href="https://drive.google.com/file/d/1bu8J8bpkHqgTvklaHeHOnDApSkGfw5nA/view?usp=drive_link">
+    <button class="btn mac">💻 Download for macOS</button>
+  </a>
+
 </div>
 
 </body>
