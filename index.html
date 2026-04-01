@@ -127,6 +127,10 @@
   Please contact admin for login credentials.
 </p>
     <p id="msg"></p>
+    .then(() => {
+  localStorage.setItem("loggedIn", "true");
+  window.location.href = "download.html";
+})
   </div>
 
   <!-- RIGHT -->
